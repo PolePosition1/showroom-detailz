@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before & After | Showroom Detailz</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ba-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 2rem auto;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .ba-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .ba-after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .ba-after img {
+      width: 900px;
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: var(--gold);
+      cursor: ew-resize;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    .slider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .labels {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .labels span {
+      background: rgba(8,8,8,0.7);
+      color: var(--ivory);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html"><img src="imagine_images/bYyBC.jpg" alt="Showroom Detailz Logo" class="logo"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="https://forms.gohighlevel.com/placeholder" class="cta-nav" target="_blank">BOOK NOW</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>Before & After</h1>
+    <div class="gold-line"></div>
+    <p>The details that make the difference. Drag the slider to see the transformation.</p>
+  </div>
+
+  <section>
+    <div class="ba-container" id="ba1">
+      <div class="labels">
+        <span>Before</span>
+        <span>After</span>
+      </div>
+      <img src="imagine_images/rsKq6.jpg" alt="Before and After" id="baImg">
+      <div class="ba-after" id="baAfter">
+        <img src="imagine_images/rsKq6.jpg" alt="After" style="clip-path: inset(0 0 0 50%);">
+      </div>
+      <div class="slider" id="slider"></div>
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;">
+      <p style="color:var(--steel); max-width:700px; margin:0 auto 2rem;">Arizona dust, sun, and daily use meet meticulous care. Real results from mobile detailing that restores that showroom feeling.</p>
+      <a href="https://forms.gohighlevel.com/placeholder" class="btn" target="_blank">Request a Detail</a>
+    </div>
+
+    <div class="gallery-grid" style="margin-top:4rem;">
+      <img src="imagine_images/j0AiS.jpg" alt="Interior finish">
+      <img src="imagine_images/sLGPz.jpg" alt="Paint gloss">
+      <img src="imagine_images/16YBe.jpg" alt="Showroom ready">
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="packages.html">Packages</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+    <p style="color:var(--steel);">© 2026 Showroom Detailz. Every Detail. Showroom Ready.</p>
+  </footer>
+
+  <script>
+    const container = document.getElementById('ba1');
+    const slider = document.getElementById('slider');
+    const after = document.getElementById('baAfter');
+    let isDragging = false;
+
+    function moveSlider(x) {
+      const rect = container.getBoundingClientRect();
+      let pos = Math.max(0, Math.min(x - rect.left, rect.width));
+      const percent = (pos / rect.width) * 100;
+      slider.style.left = percent + '%';
+      after.style.width = percent + '%';
+      after.querySelector('img').style.clipPath = `inset(0 0 0 ${100 - percent}%)`;
+    }
+
+    slider.addEventListener('mousedown', () => isDragging = true);
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mousemove', (e) => { if (isDragging) moveSlider(e.clientX); });
+
+    // Touch support
+    slider.addEventListener('touchstart', () => isDragging = true);
+    window.addEventListener('touchend', () => isDragging = false);
+    window.addEventListener('touchmove', (e) => { if (isDragging) moveSlider(e.touches[0].clientX); });
+  </script>
+</body>
+</html>
