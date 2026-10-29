@@ -1,0 +1,344 @@
+/* Showroom Detailz - Premium Website Styles
+   Colors from Brand Kit: Gloss Black #080808, Signature Gold #D3B46F, Warm Ivory #F5F1E8, Carbon #242424, Steel Gray #A8A8A8
+   70% black, 20% ivory, 10% gold
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --black: #080808;
+  --gold: #D3B46F;
+  --ivory: #F5F1E8;
+  --carbon: #242424;
+  --steel: #A8A8A8;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--ivory);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(8, 8, 8, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(211, 180, 111, 0.2);
+}
+
+.logo {
+  height: 60px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--ivory);
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.cta-nav {
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 0.6rem 1.4rem;
+  border-radius: 2px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(8,8,8,0.45), rgba(8,8,8,0.65)), url('imagine_images/h9DfB.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 5%;
+  position: relative;
+}
+
+.hero-logo {
+  height: 180px;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: 4.5rem;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+  color: var(--ivory);
+}
+
+.hero p {
+  font-size: 1.4rem;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+  color: var(--steel);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  background: #e0c07a;
+  transform: translateY(-2px);
+}
+
+/* Sections */
+section {
+  padding: 6rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--ivory);
+}
+
+.gold-line {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.5rem auto 3rem;
+}
+
+.who-we-are {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.who-we-are img {
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.who-text h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Testimonials & Reviews */
+.testimonials, .reviews {
+  background: var(--carbon);
+  padding: 6rem 5%;
+}
+
+.testimonial-grid, .review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--black);
+  padding: 2rem;
+  border: 1px solid rgba(211, 180, 111, 0.15);
+  border-radius: 4px;
+}
+
+.card p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.card .name {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* Pricing */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.price-card {
+  background: var(--carbon);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(211, 180, 111, 0.2);
+  transition: transform 0.3s;
+}
+
+.price-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+
+.price-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--gold);
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.price-card ul {
+  list-style: none;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.price-card li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.4s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+  background: var(--black);
+  padding: 4rem 5% 2rem;
+  border-top: 1px solid rgba(211, 180, 111, 0.2);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--steel);
+}
+
+/* About Page specific */
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 8rem 5% 4rem;
+}
+
+.about-hero img {
+  border-radius: 4px;
+  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.socials {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.socials a {
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero h1 { font-size: 3rem; }
+  .who-we-are, .about-hero { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  nav { justify-content: center; }
+}
+
+.page-header {
+  padding: 8rem 5% 3rem;
+  text-align: center;
+  background: var(--carbon);
+}
+
+.page-header h1 {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+}
